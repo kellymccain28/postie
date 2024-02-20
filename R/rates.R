@@ -99,8 +99,8 @@ rates_format <- function(x, clinical_cols, severe_cols, age_divisor){
     dplyr::mutate(
       clinical = .data$clinical / .data$n,
       severe = .data$severe / .data$n,
-      age_lower = round(as.numeric(.data$age_lower) / age_divisor),
-      age_upper = round(as.numeric(.data$age_upper) / age_divisor),
+      age_lower = round(as.numeric(.data$age_lower) / age_divisor, 1),
+      age_upper = round(as.numeric(.data$age_upper) / age_divisor, 1),
       n = round(.data$n)
     )|>
     dplyr::mutate(prop_n = .data$n / sum(.data$n), .by = "t")
